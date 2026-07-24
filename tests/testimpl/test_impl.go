@@ -15,7 +15,20 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// TestComposableComplete is the functional test entrypoint. It deploys the
+// example, verifies the role policy attachment, and tears the example down.
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
+	verifyIAMRolePolicyAttachment(t, ctx)
+}
+
+// TestComposableCompleteReadOnly is the readonly test entrypoint. It assumes
+// the example is already deployed and performs the same read-only
+// verification without triggering apply/destroy.
+func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
+	verifyIAMRolePolicyAttachment(t, ctx)
+}
+
+func verifyIAMRolePolicyAttachment(t *testing.T, ctx types.TestContext) {
 	iamClient := GetAWSIAMClient(t)
 
 	roleName := terraform.Output(t, ctx.TerratestTerraformOptions(), "role_name")

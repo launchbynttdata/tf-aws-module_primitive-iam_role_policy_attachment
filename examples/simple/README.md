@@ -8,12 +8,6 @@
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
-
 ## Modules
 
 | Name | Source | Version |
@@ -37,6 +31,6 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_role_name"></a> [role\_name](#output\_role\_name) | The name of the IAM role to which the policy is attached. |
 | <a name="output_policy_arn"></a> [policy\_arn](#output\_policy\_arn) | The ARN of the IAM policy that is attached. |
+| <a name="output_role_name"></a> [role\_name](#output\_role\_name) | The name of the IAM role to which the policy is attached. |
 <!-- END_TF_DOCS -->
