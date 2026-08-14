@@ -31,8 +31,8 @@ func TestComposableCompleteReadOnly(t *testing.T, ctx types.TestContext) {
 func verifyIAMRolePolicyAttachment(t *testing.T, ctx types.TestContext) {
 	iamClient := GetAWSIAMClient(t)
 
-	roleName := terraform.Output(t, ctx.TerratestTerraformOptions(), "role_name")
-	policyArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "policy_arn")
+	roleName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "role_name")
+	policyArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "policy_arn")
 
 	t.Run("TestIAMRoleExists", func(t *testing.T) {
 		role, err := iamClient.GetRole(context.TODO(), &iam.GetRoleInput{
